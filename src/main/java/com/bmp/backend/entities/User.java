@@ -7,12 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
@@ -33,133 +29,124 @@ public class User {
 	private String email;
     @Column
 	private String contact;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "addid_fk",referencedColumnName = "addid")
+	private Address address;
+
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ucatid_fk",referencedColumnName = "ucatid")
+	private UserCategory ucat;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "addid")
-    @Column
-	private Address addid_fk;
-    
-    //@JsonIgnoreProperties("user_category")
-	@OneToOne
-	@JoinColumn(name="ucatid")
-	private UserCategory ucatid_fk;
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "qid")
-    @Column
-	private SecurityQuestion qid_fk;
+    @JoinColumn(name = "qid_fk",referencedColumnName = "qid")
+	private SecurityQuestion secque;
     
     @Column
 	private String ans;
 
-	public User() 
-	{
-	
-	}
+    public User() {
+    }
 
-	public User(int userid, String username, String password, String fname, String lname, String email, String contact,
-			Address addid_fk, UserCategory ucatid_fk, SecurityQuestion qid_fk, String ans) 
-	{	
-		this.userid = userid;
-		this.username = username;
-		this.password = password;
-		this.fname = fname;
-		this.lname = lname;
-		this.email = email;
-		this.contact = contact;
-		this.addid_fk = addid_fk;
-		this.ucatid_fk = ucatid_fk;
-		this.qid_fk = qid_fk;
-		this.ans = ans;
-	}
+    public User(int userid, String username, String password, String fname, String lname, String email, String contact, Address address, UserCategory ucat, SecurityQuestion secque, String ans) {
+        this.userid = userid;
+        this.username = username;
+        this.password = password;
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.contact = contact;
+        this.address = address;
+        this.ucat = ucat;
+        this.secque = secque;
+        this.ans = ans;
+    }
 
-	public int getUserid() {
-		return userid;
-	}
+    public int getUserid() {
+        return userid;
+    }
 
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getFname() {
-		return fname;
-	}
+    public String getFname() {
+        return fname;
+    }
 
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
 
-	public String getLname() {
-		return lname;
-	}
+    public String getLname() {
+        return lname;
+    }
 
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getContact() {
-		return contact;
-	}
+    public String getContact() {
+        return contact;
+    }
 
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
 
-	public Address getAddid_fk() {
-		return addid_fk;
-	}
+    public Address getAddress() {
+        return address;
+    }
 
-	public void setAddid_fk(Address addid_fk) {
-		this.addid_fk = addid_fk;
-	}
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-	public UserCategory getUcatid_fk() {
-		return ucatid_fk;
-	}
+    public UserCategory getUcat() {
+        return ucat;
+    }
 
-	public void setUcatid_fk(UserCategory ucatid_fk) {
-		this.ucatid_fk = ucatid_fk;
-	}
+    public void setUcat(UserCategory ucat) {
+        this.ucat = ucat;
+    }
 
-	public SecurityQuestion getQid_fk() {
-		return qid_fk;
-	}
+    public SecurityQuestion getSecque() {
+        return secque;
+    }
 
-	public void setQid_fk(SecurityQuestion qid_fk) {
-		this.qid_fk = qid_fk;
-	}
+    public void setSecque(SecurityQuestion secque) {
+        this.secque = secque;
+    }
 
-	public String getAns() {
-		return ans;
-	}
+    public String getAns() {
+        return ans;
+    }
 
-	public void setAns(String ans) {
-		this.ans = ans;
-	}
-	
-	
+    public void setAns(String ans) {
+        this.ans = ans;
+    }
 }

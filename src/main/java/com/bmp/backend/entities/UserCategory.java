@@ -19,29 +19,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "user_category")
 public class UserCategory 
 {
-	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ucatid;
     
     @Column
     private String cattype;
-    
-    @JsonIgnoreProperties("ucatid")
-	@OneToMany(mappedBy="ucatid")
-	@Cascade(value=CascadeType.ALL)
-    private Set<User> users;
 
-	public UserCategory() 
-	{
-		
+	public UserCategory() {
 	}
 
-	public UserCategory(int ucatid, String cattype, Set<User> users) 
-	{		
+	public UserCategory(int ucatid, String cattype) {
 		this.ucatid = ucatid;
 		this.cattype = cattype;
-		this.users = users;
 	}
 
 	public int getUcatid() {
@@ -59,16 +49,4 @@ public class UserCategory
 	public void setCattype(String cattype) {
 		this.cattype = cattype;
 	}
-
-	public Set<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
-    
-	
-	
-
 }

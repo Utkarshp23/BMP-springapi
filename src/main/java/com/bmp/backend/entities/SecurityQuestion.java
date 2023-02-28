@@ -13,7 +13,7 @@ public class SecurityQuestion
 {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ucatid;
+	private int qid;
 	
 	@Column
 	private String question;
@@ -23,18 +23,17 @@ public class SecurityQuestion
 	
 	}
 
-	public SecurityQuestion(int ucatid, String question) 
-	{		
-		this.ucatid = ucatid;
+	public SecurityQuestion(int qid, String question) {
+		this.qid = qid;
 		this.question = question;
 	}
 
-	public int getUcatid() {
-		return ucatid;
+	public int getQid() {
+		return qid;
 	}
 
-	public void setUcatid(int ucatid) {
-		this.ucatid = ucatid;
+	public void setQid(int qid) {
+		this.qid = qid;
 	}
 
 	public String getQuestion() {
@@ -44,7 +43,4 @@ public class SecurityQuestion
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	
-	
-
 }
