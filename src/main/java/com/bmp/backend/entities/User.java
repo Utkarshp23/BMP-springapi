@@ -34,21 +34,30 @@ public class User {
     @JoinColumn(name = "addid_fk",referencedColumnName = "addid")
 	private Address address;
 
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ucatid_fk",referencedColumnName = "ucatid")
-	private UserCategory ucat;
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "ucatid_fk",referencedColumnName = "ucatid")
+//	private UserCategory ucat;
+
+//    @OneToOne
+//    @JoinColumn(name = "ucatid_fk",referencedColumnName = "ucatid")
+    @Column
+    private int ucatid_fk;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "qid_fk",referencedColumnName = "qid")
-	private SecurityQuestion secque;
-    
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "qid_fk",referencedColumnName = "qid")
+//	private SecurityQuestion secque;
+//    @OneToOne
+//    @JoinColumn(name = "qid_fk",referencedColumnName = "qid")
+    @Column
+    private int qid_fk;
+
     @Column
 	private String ans;
 
     public User() {
     }
 
-    public User(int userid, String username, String password, String fname, String lname, String email, String contact, Address address, UserCategory ucat, SecurityQuestion secque, String ans) {
+    public User(int userid, String username, String password, String fname, String lname, String email, String contact, Address address, int ucatid_fk, int qid_fk, String ans) {
         this.userid = userid;
         this.username = username;
         this.password = password;
@@ -57,8 +66,8 @@ public class User {
         this.email = email;
         this.contact = contact;
         this.address = address;
-        this.ucat = ucat;
-        this.secque = secque;
+        this.ucatid_fk = ucatid_fk;
+        this.qid_fk = qid_fk;
         this.ans = ans;
     }
 
@@ -126,20 +135,20 @@ public class User {
         this.address = address;
     }
 
-    public UserCategory getUcat() {
-        return ucat;
+    public int getUcatid_fk() {
+        return ucatid_fk;
     }
 
-    public void setUcat(UserCategory ucat) {
-        this.ucat = ucat;
+    public void setUcatid_fk(int ucatid_fk) {
+        this.ucatid_fk = ucatid_fk;
     }
 
-    public SecurityQuestion getSecque() {
-        return secque;
+    public int getQid_fk() {
+        return qid_fk;
     }
 
-    public void setSecque(SecurityQuestion secque) {
-        this.secque = secque;
+    public void setQid_fk(int qid_fk) {
+        this.qid_fk = qid_fk;
     }
 
     public String getAns() {
@@ -148,5 +157,22 @@ public class User {
 
     public void setAns(String ans) {
         this.ans = ans;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                ", email='" + email + '\'' +
+                ", contact='" + contact + '\'' +
+                ", address=" + address +
+                ", ucatid_fk=" + ucatid_fk +
+                ", qid_fk=" + qid_fk +
+                ", ans='" + ans + '\'' +
+                '}';
     }
 }
