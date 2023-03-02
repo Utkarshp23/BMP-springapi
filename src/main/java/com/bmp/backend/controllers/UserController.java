@@ -1,5 +1,6 @@
 package com.bmp.backend.controllers;
 
+import com.bmp.backend.entities.LoginCheck;
 import com.bmp.backend.entities.User;
 import com.bmp.backend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,15 @@ public class UserController
     @Autowired
     UserService userService;
 
+    @PostMapping("/logincheck")
+    public User signinUser(@RequestBody LoginCheck logcheck)
+    {
+        return userService.getLogin(logcheck.getUsername(),logcheck.getPassword());
+    }
+    
     @PostMapping("/signup")
     public User signupUser(@RequestBody User u)
     {
-        System.out.println(u);
         return userService.signupUser(u);
     }
 }
