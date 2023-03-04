@@ -1,7 +1,4 @@
 package com.bmp.backend.entities;
-
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,15 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cascade;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
 
 @Entity
 @Table(name="property")
@@ -38,7 +28,7 @@ public class Property
 	@Column
 	private int ptypeid;
 	
-	@Column
+	@Column 
 	private int ftypeid;
 	
 	@Column
@@ -118,21 +108,6 @@ public class Property
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
-
-	
-		
-//	@JsonIgnoreProperties("pid")
-//	@OneToMany(mappedBy="pid")
-//	@Cascade(value=org.hibernate.annotations.CascadeType.ALL)
-//	Set<Feedback> feedback;
-//	
-//	
-//	@Column
-//	private int feedid;
-
-	
 
 	
 	

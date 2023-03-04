@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bmp.backend.entities.Property;
-import com.bmp.backend.entities.User;
-import com.bmp.backend.entities.UserCategory;
 import com.bmp.backend.services.PropertyService;
-import com.bmp.backend.services.UserService;
+
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
