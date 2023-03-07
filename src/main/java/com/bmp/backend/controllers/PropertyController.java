@@ -41,5 +41,7 @@ public class PropertyController
     {
         return propService.delProperty(p.getPid());
     }
+	
+	
 
 }

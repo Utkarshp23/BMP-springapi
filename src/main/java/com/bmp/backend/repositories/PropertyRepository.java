@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.bmp.backend.entities.Address;
 import com.bmp.backend.entities.Property;
 import com.bmp.backend.entities.User;
 import com.bmp.backend.entities.UserCategory;
