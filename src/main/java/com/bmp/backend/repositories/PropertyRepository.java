@@ -1,9 +1,11 @@
 package com.bmp.backend.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.bmp.backend.entities.Property;
@@ -21,6 +23,8 @@ public interface PropertyRepository extends JpaRepository<Property, Integer>
 	
 	@Query("update Property set status=:deleted where pid=:id ")
 	public int deleteProperty(int id);
-	
+
+	@Query("select p from Property p where userid=:userid")
+	public List<Property> getPropertyById(@Param("userid") int userid);
 
 }
