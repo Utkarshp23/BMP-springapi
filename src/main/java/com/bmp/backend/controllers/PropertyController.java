@@ -42,6 +42,12 @@ public class PropertyController
         return propService.delProperty(p.getPid());
     }
 	
+	@GetMapping("/search/{city}")
+	public List<Property> searchByCity(@PathVariable String city)
+	{
+		return propService.getPropertyByCity(city);
+	}
+	
 	
 
 }

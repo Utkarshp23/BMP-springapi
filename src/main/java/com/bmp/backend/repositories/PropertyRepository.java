@@ -39,5 +39,8 @@ public interface PropertyRepository extends JpaRepository<Property, Integer>
 	public List<Property> getPropertyById(int userid);
 
 //	@Param("userid")
+	
+	@Query("select p from Property p where p.address.city=:city")
+	public List<Property> getByCity(String city);
 
 }

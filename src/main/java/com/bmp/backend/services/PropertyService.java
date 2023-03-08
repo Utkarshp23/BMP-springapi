@@ -56,5 +56,10 @@ public class PropertyService
     {
         return prepo.getPropertyById(userId);
     }
+    
+    public List<Property> getPropertyByCity(String city)
+    {
+    	return prepo.getByCity(city);
+    }
 
 }
