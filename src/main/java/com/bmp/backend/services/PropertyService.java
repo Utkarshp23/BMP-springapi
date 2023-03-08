@@ -36,8 +36,7 @@ public class PropertyService
 //    	return uc;
 //    }
 	
-	
-	
+
 	public List<Property> getProperty()
     {
         return prepo.findAll();
@@ -48,7 +47,7 @@ public class PropertyService
         return prepo.save(p);
     }
 	
-	public int delProperty(@RequestBody int pid)
+	public int delProperty(int pid)
     {
         return prepo.deleteProperty(pid);
     }
