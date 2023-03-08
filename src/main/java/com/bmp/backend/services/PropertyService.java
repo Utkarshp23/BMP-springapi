@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.bmp.backend.entities.Property;
@@ -35,8 +36,7 @@ public class PropertyService
 //    	return uc;
 //    }
 	
-	
-	
+
 	public List<Property> getProperty()
     {
         return prepo.findAll();
@@ -47,9 +47,14 @@ public class PropertyService
         return prepo.save(p);
     }
 	
-	public int delProperty(@RequestBody int pid)
+	public int delProperty(int pid)
     {
         return prepo.deleteProperty(pid);
+    }
+
+    public List<Property> getPropertyById(int userId)
+    {
+        return prepo.getPropertyById(userId);
     }
 
 }
