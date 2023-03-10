@@ -1,10 +1,13 @@
 package com.bmp.backend.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,19 +21,25 @@ public class Wishlist {
 	@Column
 	private int buyerid;
 	
-	@Column
-	private int propid;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "propid",referencedColumnName = "pid")
+	private Property property;
 
 	public Wishlist() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Wishlist(int wishid, int buyerid, int propid) {
+	public Wishlist(int wishid, int buyerid, Property property) {
 		super();
 		this.wishid = wishid;
 		this.buyerid = buyerid;
-		this.propid = propid;
+		this.property = property;
+	}
+
+	@Override
+	public String toString() {
+		return "Wishlist [wishid=" + wishid + ", buyerid=" + buyerid + ", property=" + property + "]";
 	}
 
 	public int getWishid() {
@@ -49,13 +58,13 @@ public class Wishlist {
 		this.buyerid = buyerid;
 	}
 
-	public int getPropid() {
-		return propid;
+	public Property getProperty() {
+		return property;
 	}
 
-	public void setPropid(int propid) {
-		this.propid = propid;
+	public void setProperty(Property property) {
+		this.property = property;
 	}
-	
+		
 	
 }
