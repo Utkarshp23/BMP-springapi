@@ -9,7 +9,7 @@ import com.bmp.backend.entities.Request;
 @Repository
 public interface RequestRepository extends JpaRepository<Request, Integer> 
 {
-	@Query("select r from Request r where buyerid=:id")
+	@Query("select r from Request r where buyerid=?1")
 	public List<Request> getallRequest(int id);
 
 }
