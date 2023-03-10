@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bmp.backend.entities.Property;
 import com.bmp.backend.entities.Request;
 import com.bmp.backend.entities.Wishlist;
 import com.bmp.backend.services.RequestService;
@@ -33,6 +34,14 @@ public class WishlistController
 	{
 		return wishserv.getAllWishes(buyerid);
 	}
+	
+	@GetMapping("/deletewish/{wishid}")
+    public int delWish(@PathVariable int wishid)
+    {
+        return wishserv.deleteWish(wishid);
+    }
+	
+	
 	
 
 }
