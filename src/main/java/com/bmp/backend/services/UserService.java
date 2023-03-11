@@ -36,4 +36,9 @@ public class UserService {
         return userrepo.save(u);
     }
 
+	public Object getUserName(int userid)
+	{
+		return userrepo.getUserName(userid);
+	}
+
 }

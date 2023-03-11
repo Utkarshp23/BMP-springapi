@@ -15,7 +15,7 @@ import com.bmp.backend.entities.Wishlist;
 public interface WishlistRepository extends JpaRepository<Wishlist, Integer> 
 {
 	
-	@Query("select r from Wishlist r where buyerid=:id")
+	@Query("select r from Wishlist r where buyerid=?1")
 	public List<Wishlist> getallWishlist(int id);
 	
 	@Modifying

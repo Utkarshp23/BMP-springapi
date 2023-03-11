@@ -2,6 +2,7 @@ package com.bmp.backend.repositories;
 
 import com.bmp.backend.entities.User;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,4 +14,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query("select u from User u where username=:username and password=:password")
 	public Optional<User> getLogin(@Param("username") String username,@Param("password") String password);
+
+	@Query("select u.fname, u.lname from User u where userid=?1")
+	public Object getUserName(int userid);
 }
