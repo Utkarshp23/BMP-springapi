@@ -21,7 +21,7 @@ public class Wishlist {
 	@Column
 	private int buyerid;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "propid",referencedColumnName = "pid")
 	private Property property;
 

@@ -4,10 +4,7 @@ import com.bmp.backend.entities.LoginCheck;
 import com.bmp.backend.entities.User;
 import com.bmp.backend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -26,5 +23,11 @@ public class UserController
     public User signupUser(@RequestBody User u)
     {
         return userService.signupUser(u);
+    }
+
+    @GetMapping("/getusername/{userid}")
+    public Object getUserName(@PathVariable("userid") int userid)
+    {
+        return userService.getUserName(userid);
     }
 }

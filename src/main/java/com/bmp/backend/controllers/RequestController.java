@@ -33,4 +33,10 @@ public class RequestController
 		return reqserv.getallrequestById(buyerid);
 	}
 
+	@GetMapping("/getpropreq/{propid}")
+	public List<Request> getAllRequestByPropId(@PathVariable int propid)
+	{
+		return reqserv.getAllRequestByPropId(propid);
+	}
+
 }

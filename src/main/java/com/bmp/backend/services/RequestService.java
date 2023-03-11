@@ -25,4 +25,9 @@ public class RequestService
 		return reqrepo.getallRequest(id);
 	}
 
+	public List<Request> getAllRequestByPropId(int propid)
+	{
+		return reqrepo.getAllRequestByPropId(propid);
+	}
+
 }

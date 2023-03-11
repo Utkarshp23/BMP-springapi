@@ -12,4 +12,7 @@ public interface RequestRepository extends JpaRepository<Request, Integer>
 	@Query("select r from Request r where buyerid=?1")
 	public List<Request> getallRequest(int id);
 
+	@Query("select r from Request r where propid=?1")
+	public List<Request> getAllRequestByPropId(int id);
+
 }
