@@ -41,6 +41,7 @@ public class UserService {
 	{
 		return userrepo.getUserName(userid);
 	}
+
 	
 	public List<User> getUsers()
 	{
@@ -52,4 +53,12 @@ public class UserService {
     	return userrepo.validateUser(id);
     }
 	
+
+
+	public User getUser(int userid)
+	{
+		return userrepo.getUser(userid);
+	}
+
+
 }

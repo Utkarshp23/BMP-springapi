@@ -20,9 +20,15 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 	@Query("select u.fname, u.lname from User u where userid=?1")
 	public Object getUserName(int userid);
+
 	
 	@Modifying
 	@Query("update User p set status='Verified' where userid=:id")
 	public int validateUser (int id);
 	
+
+
+	@Query("select u from User u where userid=?1")
+	public User getUser(int userid);
+
 }

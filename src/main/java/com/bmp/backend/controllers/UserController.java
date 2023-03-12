@@ -33,6 +33,7 @@ public class UserController
     {
         return userService.getUserName(userid);
     }
+
     
     @GetMapping("/getallusers")
     public List<User> getUserById()
@@ -46,5 +47,12 @@ public class UserController
 	{
 		return userService.validateUser(userid);
 	}
-    
+
+
+    @GetMapping("/getuser/{userid}")
+    public User getUser(@PathVariable("userid") int userid)
+    {
+        return userService.getUser(userid);
+    }
+
 }
