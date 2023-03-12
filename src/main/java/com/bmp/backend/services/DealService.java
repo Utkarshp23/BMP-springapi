@@ -27,4 +27,9 @@ public class DealService
 		return dealrepo.updateStatus(s,id);
 	}
 
+	public Deal confirmDeal(Deal d)
+	{
+		return dealrepo.save(d);
+	}
+
 }
