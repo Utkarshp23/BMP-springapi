@@ -3,6 +3,9 @@ package com.bmp.backend.controllers;
 import com.bmp.backend.entities.LoginCheck;
 import com.bmp.backend.entities.User;
 import com.bmp.backend.services.UserService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,4 +33,18 @@ public class UserController
     {
         return userService.getUserName(userid);
     }
+    
+    @GetMapping("/getallusers")
+    public List<User> getUserById()
+    {
+    	return userService.getUsers();
+    }
+    
+    
+    @GetMapping("/validateuser/{userid}")
+	public int validateuser (@PathVariable int userid)
+	{
+		return userService.validateUser(userid);
+	}
+    
 }

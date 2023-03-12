@@ -61,5 +61,10 @@ public class PropertyService
     {
     	return prepo.getByCity(city);
     }
+    
+    public int validate(int pid)
+    {
+    	return prepo.validate(pid);
+    }
 
 }
