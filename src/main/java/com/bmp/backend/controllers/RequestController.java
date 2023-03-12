@@ -39,4 +39,11 @@ public class RequestController
 		return reqserv.getAllRequestByPropId(propid);
 	}
 
+
+	@GetMapping("/updatereq/{reqid}")
+	public int updateReqStatus(@PathVariable int reqid)
+	{
+		return reqserv.updateReqStatus(reqid);
+	}
+
 }

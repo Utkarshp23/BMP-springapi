@@ -41,4 +41,9 @@ public class UserService {
 		return userrepo.getUserName(userid);
 	}
 
+	public User getUser(int userid)
+	{
+		return userrepo.getUser(userid);
+	}
+
 }

@@ -30,4 +30,9 @@ public class RequestService
 		return reqrepo.getAllRequestByPropId(propid);
 	}
 
+	public int updateReqStatus(int requid)
+	{
+		return reqrepo.updateReqStatus(requid);
+	}
+
 }

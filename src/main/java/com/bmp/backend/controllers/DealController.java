@@ -27,6 +27,12 @@ public class DealController
 	{
 		return dealserv.getAllDeal(ownerid);
 	}
+
+	@PostMapping("/makedeal")
+	public Deal confirmDeal(@RequestBody Deal d)
+	{
+		return dealserv.confirmDeal(d);
+	}
 	
 //	@PutMapping("/updatestatus")
 //	public int updateStatus(@RequestBody String status , @RequestBody int reqid)
