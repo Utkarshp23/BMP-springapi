@@ -48,6 +48,10 @@ public class PropertyController
 		return propService.getPropertyByCity(city);
 	}
 	
-	
+	@GetMapping("/validateproperty/{pid}")
+	public int validate(@PathVariable int pid)
+	{
+		return propService.validate(pid);
+	}
 
 }
