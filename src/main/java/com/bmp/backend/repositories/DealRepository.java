@@ -11,11 +11,11 @@ import com.bmp.backend.entities.Deal;
 @Repository
 public interface DealRepository extends JpaRepository<Deal, Integer> 
 {
-	@Query("select d from Deal d where ownerid =:ownid")
+	@Query("select d from Deal d where ownerid =?1")
 	public List<Deal> getalldeal (int ownid);
 	
 	@Modifying
-	@Query("update Deal d set d.status=:state where d.reqid=:id ")
+	@Query("update Deal d set d.status=:state where d.reqid=?1")
 	public int updateStatus(String state , int id);
 
 }

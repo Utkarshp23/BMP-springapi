@@ -55,4 +55,10 @@ public class UserController
         return userService.getUser(userid);
     }
 
+    @GetMapping("getuserbyun/{tempuname}")
+    public User getUserByuname(@PathVariable String tempuname)
+    {
+        return userService.getUserByuname(tempuname);
+    }
+
 }
