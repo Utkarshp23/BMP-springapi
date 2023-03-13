@@ -40,13 +40,17 @@ public interface PropertyRepository extends JpaRepository<Property, Integer>
 
 //	@Param("userid")
 	
-	@Query("select p from Property p where p.address.city=?1")
+	@Query("select p from Property p where p.address.city=?1 and s_status='Not Dealed'")
 	public List<Property> getByCity(String city);
 	
 	@Modifying
 	@Query("update Property p set status='Verified' where pid=?1")
 	public int validate (int pid);
 
-	@Query(value="select * from Property where pid not in (select propid from Deal)",nativeQuery = true)
+	@Query(value="select * from property where pid not in (select propid from deal)",nativeQuery = true)
 	public List<Property> getNotdealedprop();
+
+	@Modifying
+	@Query("update Property p set s_status='Dealed' where pid=?1")
+	public int updateSstatus (int pid);
 }

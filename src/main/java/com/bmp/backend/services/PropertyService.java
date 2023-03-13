@@ -71,4 +71,8 @@ public class PropertyService
     {
     	return prepo.getNotdealedprop();
     }
+
+    public int updateSstatus(int id){
+        return prepo.updateSstatus(id);
+    }
 }

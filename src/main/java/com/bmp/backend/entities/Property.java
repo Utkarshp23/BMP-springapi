@@ -37,12 +37,15 @@ public class Property
 	@Column
 	private String status;
 
+	@Column
+	private String s_status;
+
 	public Property() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Property(int pid, int userid, Address address, int ptypeid, int ftypeid, double price, String status) {
+	public Property(int pid, int userid, Address address, int ptypeid, int ftypeid, double price, String status,String s_status) {
 		super();
 		this.pid = pid;
 		this.userid = userid;
@@ -51,6 +54,7 @@ public class Property
 		this.ftypeid = ftypeid;
 		this.price = price;
 		this.status = status;
+		this.s_status=s_status;
 	}
 
 	public int getPid() {
@@ -109,7 +113,11 @@ public class Property
 		this.status = status;
 	}
 
-	
-	
-	
+	public String getS_status() {
+		return s_status;
+	}
+
+	public void setS_status(String s_status) {
+		this.s_status = s_status;
+	}
 }
