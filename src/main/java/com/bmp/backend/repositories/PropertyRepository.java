@@ -47,4 +47,6 @@ public interface PropertyRepository extends JpaRepository<Property, Integer>
 	@Query("update Property p set status='Verified' where pid=:pid")
 	public int validate (int pid);
 
+	@Query(value="select * from Property where pid not in (select propid from Deal)",nativeQuery = true)
+	public List<Property> getNotdealedprop();
 }
