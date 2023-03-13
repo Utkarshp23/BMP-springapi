@@ -12,9 +12,8 @@ import com.bmp.backend.entities.Wishlist;
 //import com.bmp.backend.entities.Wishlist;
 @Transactional
 @Repository
-public interface WishlistRepository extends JpaRepository<Wishlist, Integer> 
+public interface WishlistRepository extends JpaRepository<Wishlist, Integer>
 {
-	
 	@Query("select r from Wishlist r where buyerid=?1")
 	public List<Wishlist> getallWishlist(int id);
 	

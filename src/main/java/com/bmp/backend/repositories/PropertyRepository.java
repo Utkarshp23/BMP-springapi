@@ -44,7 +44,7 @@ public interface PropertyRepository extends JpaRepository<Property, Integer>
 	public List<Property> getByCity(String city);
 	
 	@Modifying
-	@Query("update Property p set status='Verified' where pid=:pid")
+	@Query("update Property p set status='Verified' where pid=?1")
 	public int validate (int pid);
 
 }

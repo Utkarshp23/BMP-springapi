@@ -60,5 +60,10 @@ public class UserService {
 		return userrepo.getUser(userid);
 	}
 
+	public User getUserByuname(String un)
+	{
+		return userrepo.getUser(un);
+	}
+
 
 }
