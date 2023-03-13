@@ -67,4 +67,8 @@ public class PropertyService
     	return prepo.validate(pid);
     }
 
+    public List<Property> getPropnotdealed()
+    {
+    	return prepo.getNotdealedprop();
+    }
 }

@@ -17,11 +17,11 @@ public class PropertyController
 	@Autowired
     PropertyService propService;
 	
-	@GetMapping("/getproperty")
-    public List<Property> getProperty()
-    {
-        return propService.getProperty();
-    }
+//	@GetMapping("/getproperty")
+//    public List<Property> getProperty()
+//    {
+//        return propService.getProperty();
+//    }
 
     @GetMapping("/getpropertybyid/{userId}")
     public List<Property> getPropertyById(@PathVariable int userId)
@@ -52,6 +52,12 @@ public class PropertyController
 	public int validate(@PathVariable int pid)
 	{
 		return propService.validate(pid);
+	}
+	
+	@GetMapping("/getproperty")
+	public List<Property> getprop()
+	{
+		return propService.getPropnotdealed();
 	}
 
 }
