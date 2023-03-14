@@ -2,6 +2,8 @@ package com.bmp.backend.controllers;
 
 import java.util.List;
 
+import com.bmp.backend.services.PropertyService;
+import com.bmp.backend.services.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,12 @@ public class DealController
 {
 	@Autowired
 	DealService dealserv;
+
+	@Autowired
+	PropertyService pserv;
+
+	@Autowired
+	RequestService rserv;
 	
 	@GetMapping("/getalldeals/{ownerid}")
 	public List<Deal> getAllDeal(@PathVariable int ownerid)
@@ -31,6 +39,8 @@ public class DealController
 	@PostMapping("/makedeal")
 	public Deal confirmDeal(@RequestBody Deal d)
 	{
+		pserv.updateSstatus(d.getPropid());
+		rserv.deleteReq(d.getPropid());
 		return dealserv.confirmDeal(d);
 	}
 	

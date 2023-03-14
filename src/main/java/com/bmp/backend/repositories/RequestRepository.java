@@ -24,4 +24,8 @@ public interface RequestRepository extends JpaRepository<Request, Integer>
 	@Query("update Request r set r.status='Accepted' where r.reqid=?1")
 	public int updateReqStatus(int requid);
 
+	@Modifying
+	@Query("delete from Request r where r.propid=?1")
+	public int deleteByPropId(int id);
+
 }

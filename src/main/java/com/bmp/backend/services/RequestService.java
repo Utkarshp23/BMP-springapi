@@ -37,4 +37,8 @@ public class RequestService
 		return reqrepo.updateReqStatus(requid);
 	}
 
+	public int deleteReq(int propid){
+		return  reqrepo.deleteByPropId(propid);
+	}
+
 }
