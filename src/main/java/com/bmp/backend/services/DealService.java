@@ -1,11 +1,9 @@
 package com.bmp.backend.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.bmp.backend.entities.Deal;
@@ -22,10 +20,10 @@ public class DealService
         return dealrepo.getalldeal(ownid);
     }
 	
-	public int updatestatus(String s , int id )
-	{
-		return dealrepo.updateStatus(s,id);
-	}
+//	public int updatestatus(String s , int id )
+//	{
+//		return dealrepo.updateStatus(s,id);
+//	}
 
 	public Deal confirmDeal(Deal d)
 	{
